@@ -41,9 +41,15 @@ export default function Home() {
             <Button variant="outline" size="sm" className="hidden md:flex">
               登入
             </Button>
-            <Button size="sm" className="bg-green-500 hover:bg-green-600">
+          <a
+              href="https://forms.gle/eKTRtqfnLqEmKVpSA"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-block px-4 py-2 text-sm font-medium text-white bg-green-500 rounded-md hover:bg-green-600"
+            >
               立即報名
-            </Button>
+            </a>
+
           </div>
         </div>
       </header>

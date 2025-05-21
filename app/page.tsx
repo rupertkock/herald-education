@@ -73,15 +73,15 @@ export default function Home() {
           </nav>
           <div className="flex items-center gap-4">
             <Button size="sm" className="bg-green-500 hover:bg-green-600">
-          <a
-                      href="https://forms.gle/eKTRtqfnLqEmKVpSA"
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="inline-block px-4 py-2 text-sm font-medium text-white bg-green-500 rounded-md hover:bg-green-600"
-                    >
-              立即報名
+              <a
+                href="https://forms.gle/eKTRtqfnLqEmKVpSA"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-white"
+              >
+                立即報名
+              </a>
             </Button>
-          </a>
           </div>
         </div>
       </header>
@@ -420,15 +420,14 @@ export default function Home() {
                 <div className="flex flex-col gap-2 min-[400px]:flex-row">
                   <Button className="bg-green-500 hover:bg-green-600">
                     <a
-                  href="https://forms.gle/eKTRtqfnLqEmKVpSA"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="inline-block px-4 py-2 text-sm font-medium text-white bg-green-500 rounded-md hover:bg-green-600"
-                >
-                    立即報名
-                </Button>
+                      href="https://forms.gle/eKTRtqfnLqEmKVpSA"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="text-white"
+                    >
+                      立即報名
                     </a>
-
+                  </Button>
                   <Button variant="outline">了解更多</Button>
                 </div>
               </div>
@@ -544,13 +543,12 @@ export default function Home() {
                       strokeLinejoin="round"
                       className="h-6 w-6 text-blue-600"
                     >
-                      <circle cx="12" cy="12" r="10" />
-                      <path d="m16 12-4 4-4-4" />
-                      <path d="M12 8v8" />
+                      <path d="M4 15s1-1 4-1 5 2 8 2 4-1 4-1V3s-1 1-4 1-5-2-8-2-4 1-4 1z" />
+                      <line x1="4" x2="4" y1="22" y2="15" />
                     </svg>
                   </div>
-                  <h3 className="text-xl font-bold text-blue-600">體育活動</h3>
-                  <p className="text-gray-500">提供各種體育活動，如籃球、足球等，促進孩子的身體健康和團隊合作精神。</p>
+                  <h3 className="text-xl font-bold text-blue-600">品格培養</h3>
+                  <p className="text-gray-500">通過聖經故事、團隊活動等方式，培養孩子良好的品格和價值觀。</p>
                   <Button variant="outline" className="mt-2">
                     了解更多
                   </Button>

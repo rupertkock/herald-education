@@ -73,8 +73,15 @@ export default function Home() {
           </nav>
           <div className="flex items-center gap-4">
             <Button size="sm" className="bg-green-500 hover:bg-green-600">
+          <a
+                      href="https://forms.gle/eKTRtqfnLqEmKVpSA"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="inline-block px-4 py-2 text-sm font-medium text-white bg-green-500 rounded-md hover:bg-green-600"
+                    >
               立即報名
             </Button>
+          </a>
           </div>
         </div>
       </header>
@@ -411,7 +418,17 @@ export default function Home() {
                   </li>
                 </ul>
                 <div className="flex flex-col gap-2 min-[400px]:flex-row">
-                  <Button className="bg-green-500 hover:bg-green-600">立即報名</Button>
+                  <Button className="bg-green-500 hover:bg-green-600">
+                    <a
+                  href="https://forms.gle/eKTRtqfnLqEmKVpSA"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-block px-4 py-2 text-sm font-medium text-white bg-green-500 rounded-md hover:bg-green-600"
+                >
+                    立即報名
+                </Button>
+                    </a>
+
                   <Button variant="outline">了解更多</Button>
                 </div>
               </div>

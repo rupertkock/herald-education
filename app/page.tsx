@@ -4,8 +4,42 @@ import { Button } from "@/components/ui/button"
 import { Card, CardContent } from "@/components/ui/card"
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs"
 import { Calendar, Clock, MapPin, Phone, Mail } from "lucide-react"
+import { ImageCarousel } from "@/components/image-carousel"
 
 export default function Home() {
+  const galleryImages = [
+    {
+      src: "/gallery/activity1.jpg",
+      alt: "學生們參與團體活動",
+      caption: "課後輔導班團體活動",
+    },
+    {
+      src: "/gallery/activity2.jpg",
+      alt: "學生們與老師合影",
+      caption: "新年慶祝活動",
+    },
+    {
+      src: "/gallery/activity3.jpg",
+      alt: "老師授課場景",
+      caption: "互動式教學",
+    },
+    {
+      src: "/gallery/activity4.jpg",
+      alt: "學生們展示新年紅包",
+      caption: "農曆新年活動",
+    },
+    {
+      src: "/gallery/activity5.jpg",
+      alt: "電腦課程教學",
+      caption: "多媒體教學課程",
+    },
+    {
+      src: "/gallery/activity6.jpg",
+      alt: "學生們展示手工作品",
+      caption: "創意手工課程",
+    },
+  ]
+
   return (
     <div className="flex min-h-screen flex-col">
       <header className="sticky top-0 z-50 w-full border-b bg-white">
@@ -38,18 +72,9 @@ export default function Home() {
             </Link>
           </nav>
           <div className="flex items-center gap-4">
-            <Button variant="outline" size="sm" className="hidden md:flex">
-              登入
-            </Button>
-          <a
-              href="https://forms.gle/eKTRtqfnLqEmKVpSA"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="inline-block px-4 py-2 text-sm font-medium text-white bg-green-500 rounded-md hover:bg-green-600"
-            >
+            <Button size="sm" className="bg-green-500 hover:bg-green-600">
               立即報名
-            </a>
-
+            </Button>
           </div>
         </div>
       </header>
@@ -82,6 +107,21 @@ export default function Home() {
                 />
               </div>
             </div>
+          </div>
+        </section>
+
+        <section className="w-full py-12 md:py-16 bg-white">
+          <div className="container px-4 md:px-6">
+            <div className="flex flex-col items-center justify-center space-y-4 text-center mb-8">
+              <div className="space-y-2">
+                <div className="inline-block rounded-lg bg-orange-100 px-3 py-1 text-sm text-orange-600">活動掠影</div>
+                <h2 className="text-3xl font-bold tracking-tighter sm:text-4xl text-orange-600">精彩活動回顧</h2>
+                <p className="max-w-[900px] text-gray-500 md:text-xl/relaxed lg:text-base/relaxed xl:text-xl/relaxed">
+                  透過這些照片，一起回顧我們的學生在角聲教育事工的精彩時刻。
+                </p>
+              </div>
+            </div>
+            <ImageCarousel images={galleryImages} />
           </div>
         </section>
 

@@ -43,9 +43,6 @@ export default function TeachersPage() {
             </Link>
           </nav>
           <div className="flex items-center gap-4">
-            <Button variant="outline" size="sm" className="hidden md:flex">
-              登入
-            </Button>
             <Button size="sm" className="bg-green-500 hover:bg-green-600">
               立即報名
             </Button>

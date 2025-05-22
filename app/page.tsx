@@ -287,7 +287,7 @@ export default function Home() {
                     </div>
                   </li>
                 </ul>
-                // ... existing code ...
+                
                 <div className="flex flex-col gap-2 min-[400px]:flex-row">
                   <Button className="bg-orange-500 hover:bg-orange-600">
                     <a
@@ -301,7 +301,7 @@ export default function Home() {
                   </Button>
                   <Button variant="outline">了解更多</Button>
                 </div>
-// ... existing code .../
+
 
               </div>
               <div className="flex items-center justify-center">

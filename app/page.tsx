@@ -1,10 +1,15 @@
 import Link from "next/link"
 import Image from "next/image"
+import { useState } from 'react'
 import { Button } from "@/components/ui/button"
 import { Card, CardContent } from "@/components/ui/card"
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs"
-import { Calendar, Clock, MapPin, Phone, Mail } from "lucide-react"
+import { Calendar, Clock, MapPin, Phone, Mail, CheckCircle, AlertCircle } from "lucide-react"
 import { ImageCarousel } from "@/components/image-carousel"
+import { Label } from "@/components/ui/label"
+import { Input } from "@/components/ui/input"
+import { Textarea } from "@/components/ui/textarea"
+import { Alert, AlertDescription } from "@/components/ui/alert"
 
 export default function Home() {
   const galleryImages = [
@@ -72,16 +77,16 @@ export default function Home() {
             </Link>
           </nav>
           <div className="flex items-center gap-4">
-            <Button size="sm" className="bg-green-500 hover:bg-green-600">
-              <a
-                href="https://forms.gle/eKTRtqfnLqEmKVpSA"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="text-white"
-              >
+            <a
+              href="https://forms.gle/eKTRtqfnLqEmKVpSA"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-block"
+            >
+              <Button size="sm" className="bg-green-500 hover:bg-green-600">
                 立即報名
-              </a>
-            </Button>
+              </Button>
+            </a>
           </div>
         </div>
       </header>
@@ -970,6 +975,7 @@ const ContactForm = () => {
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setIsSubmitting(true);
+    setSubmitStatus('idle'); // 重置狀態
     
     try {
       const response = await fetch('/api/contact', {
@@ -980,12 +986,13 @@ const ContactForm = () => {
         body: JSON.stringify(formData),
       });
 
-      if (!response.ok) throw new Error('提交失败');
+      if (!response.ok) throw new Error('提交失敗');
       
       setSubmitStatus('success');
       setFormData({ name: '', email: '', phone: '', subject: '', message: '' });
     } catch (error) {
       setSubmitStatus('error');
+      console.error('提交表單時發生錯誤:', error);
     } finally {
       setIsSubmitting(false);
     }

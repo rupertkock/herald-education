@@ -373,3 +373,108 @@ export default function MessagesManagement() {
     </div>
   )
 }
+
+type MessageStatus = '未處理' | '已讀' | '處理中' | '已處理';
+
+interface Message {
+  id: number;
+  name: string;
+  email: string;
+  phone: string;
+  subject: string;
+  message: string;
+  date: string;
+  status: MessageStatus;
+}
+
+export default function MessagesPage() {
+  const [messages, setMessages] = useState<Message[]>(initialMessages);
+  const [selectedStatus, setSelectedStatus] = useState<MessageStatus | '全部'>('全部');
+  const [searchTerm, setSearchTerm] = useState('');
+
+  const filteredMessages = messages.filter(message => {
+    const matchesSearch = 
+      message.name.toLowerCase().includes(searchTerm.toLowerCase()) ||
+      message.subject.toLowerCase().includes(searchTerm.toLowerCase()) ||
+      message.message.toLowerCase().includes(searchTerm.toLowerCase());
+    
+    return selectedStatus === '全部' ? matchesSearch : (message.status === selectedStatus && matchesSearch);
+  });
+
+  const handleStatusChange = (messageId: number, newStatus: MessageStatus) => {
+    setMessages(messages.map(message => 
+      message.id === messageId ? { ...message, status: newStatus } : message
+    ));
+  };
+
+  return (
+    <div className="space-y-6">
+      <div className="flex justify-between items-center">
+        <div>
+          <h1 className="text-3xl font-bold tracking-tight">聯絡訊息管理</h1>
+          <p className="text-gray-500">管理和回覆收到的聯絡訊息</p>
+        </div>
+      </div>
+
+      <div className="flex gap-4 items-center">
+        <div className="flex-1">
+          <Input
+            placeholder="搜尋訊息..."
+            value={searchTerm}
+            onChange={(e) => setSearchTerm(e.target.value)}
+            className="max-w-sm"
+          />
+        </div>
+        <Select value={selectedStatus} onValueChange={(value) => setSelectedStatus(value as MessageStatus | '全部')}>
+          <SelectTrigger className="w-[180px]">
+            <SelectValue placeholder="選擇狀態" />
+          </SelectTrigger>
+          <SelectContent>
+            <SelectItem value="全部">全部</SelectItem>
+            <SelectItem value="未處理">未處理</SelectItem>
+            <SelectItem value="已讀">已讀</SelectItem>
+            <SelectItem value="處理中">處理中</SelectItem>
+            <SelectItem value="已處理">已處理</SelectItem>
+          </SelectContent>
+        </Select>
+      </div>
+
+      <div className="grid gap-6">
+        {filteredMessages.map((message) => (
+          <Card key={message.id}>
+            <CardContent className="p-6">
+              <div className="flex justify-between items-start mb-4">
+                <div>
+                  <h3 className="font-bold">{message.name}</h3>
+                  <p className="text-sm text-gray-500">{message.email}</p>
+                  {message.phone && <p className="text-sm text-gray-500">{message.phone}</p>}
+                </div>
+                <div className="flex items-center gap-2">
+                  <Select
+                    value={message.status}
+                    onValueChange={(value) => handleStatusChange(message.id, value as MessageStatus)}
+                  >
+                    <SelectTrigger className="w-[120px]">
+                      <SelectValue />
+                    </SelectTrigger>
+                    <SelectContent>
+                      <SelectItem value="未處理">未處理</SelectItem>
+                      <SelectItem value="已讀">已讀</SelectItem>
+                      <SelectItem value="處理中">處理中</SelectItem>
+                      <SelectItem value="已處理">已處理</SelectItem>
+                    </SelectContent>
+                  </Select>
+                </div>
+              </div>
+              <div className="space-y-2">
+                <h4 className="font-medium">{message.subject}</h4>
+                <p className="text-gray-600">{message.message}</p>
+                <p className="text-sm text-gray-500">{message.date}</p>
+              </div>
+            </CardContent>
+          </Card>
+        ))}
+      </div>
+    </div>
+  );
+}

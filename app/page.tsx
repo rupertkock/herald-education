@@ -287,7 +287,7 @@ export default function Home() {
                     </div>
                   </li>
                 </ul>
-                
+
                 <div className="flex flex-col gap-2 min-[400px]:flex-row">
                   <Button className="bg-orange-500 hover:bg-orange-600">
                     <a
@@ -771,10 +771,7 @@ export default function Home() {
                     </div>
                   </li>
                 </ul>
-                <div className="flex flex-col gap-2 min-[400px]:flex-row">
-                  <Button className="bg-orange-500 hover:bg-orange-600">立即報名</Button>
-                  <Button variant="outline">預約參觀</Button>
-                </div>
+                
               </div>
               <div className="flex items-center justify-center">
                 <Card className="w-full">
@@ -958,3 +955,111 @@ export default function Home() {
     </div>
   )
 }
+
+const ContactForm = () => {
+  const [formData, setFormData] = useState({
+    name: '',
+    email: '',
+    phone: '',
+    subject: '',
+    message: ''
+  });
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [submitStatus, setSubmitStatus] = useState<'idle' | 'success' | 'error'>('idle');
+
+  const handleSubmit = async (e: React.FormEvent) => {
+    e.preventDefault();
+    setIsSubmitting(true);
+    
+    try {
+      const response = await fetch('/api/contact', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(formData),
+      });
+
+      if (!response.ok) throw new Error('提交失败');
+      
+      setSubmitStatus('success');
+      setFormData({ name: '', email: '', phone: '', subject: '', message: '' });
+    } catch (error) {
+      setSubmitStatus('error');
+    } finally {
+      setIsSubmitting(false);
+    }
+  };
+
+  return (
+    <form onSubmit={handleSubmit} className="space-y-4">
+      <div className="grid gap-4">
+        <div className="grid gap-2">
+          <Label htmlFor="name">姓名</Label>
+          <Input
+            id="name"
+            value={formData.name}
+            onChange={(e) => setFormData(prev => ({ ...prev, name: e.target.value }))}
+            required
+          />
+        </div>
+        <div className="grid gap-2">
+          <Label htmlFor="email">電子郵件</Label>
+          <Input
+            id="email"
+            type="email"
+            value={formData.email}
+            onChange={(e) => setFormData(prev => ({ ...prev, email: e.target.value }))}
+            required
+          />
+        </div>
+        <div className="grid gap-2">
+          <Label htmlFor="phone">電話</Label>
+          <Input
+            id="phone"
+            type="tel"
+            value={formData.phone}
+            onChange={(e) => setFormData(prev => ({ ...prev, phone: e.target.value }))}
+          />
+        </div>
+        <div className="grid gap-2">
+          <Label htmlFor="subject">主旨</Label>
+          <Input
+            id="subject"
+            value={formData.subject}
+            onChange={(e) => setFormData(prev => ({ ...prev, subject: e.target.value }))}
+            required
+          />
+        </div>
+        <div className="grid gap-2">
+          <Label htmlFor="message">留言內容</Label>
+          <Textarea
+            id="message"
+            value={formData.message}
+            onChange={(e) => setFormData(prev => ({ ...prev, message: e.target.value }))}
+            required
+          />
+        </div>
+      </div>
+      <Button 
+        className="bg-orange-500 hover:bg-orange-600 w-full" 
+        type="submit"
+        disabled={isSubmitting}
+      >
+        {isSubmitting ? '提交中...' : '提交'}
+      </Button>
+      {submitStatus === 'success' && (
+        <Alert className="bg-green-50 text-green-700">
+          <CheckCircle className="h-4 w-4" />
+          <AlertDescription>感謝您的留言，我們會盡快回覆。</AlertDescription>
+        </Alert>
+      )}
+      {submitStatus === 'error' && (
+        <Alert variant="destructive">
+          <AlertCircle className="h-4 w-4" />
+          <AlertDescription>提交失敗，請稍後再試。</AlertDescription>
+        </Alert>
+      )}
+    </form>
+  );
+};

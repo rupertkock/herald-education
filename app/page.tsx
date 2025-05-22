@@ -99,19 +99,7 @@ export default function Home() {
                 <p className="max-w-[600px] text-gray-500 md:text-xl/relaxed lg:text-base/relaxed xl:text-xl/relaxed">
                   我們致力於提供全人發展的教育環境，培養孩子的品格、學術能力和創造力。
                 </p>
-                <div className="flex flex-col gap-2 min-[400px]:flex-row">
-                  <Button className="bg-orange-500 hover:bg-orange-600">
-                    <a
-                      href="https://forms.gle/oNHHgK1yP9ccKytD7"
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="text-white"
-                    >
-                      立即報名
-                    </a>
-                  </Button>
-                  <Button variant="outline">了解更多</Button>
-                </div>
+
               </div>
               <div className="flex items-center justify-center">
                 <Image
@@ -299,10 +287,22 @@ export default function Home() {
                     </div>
                   </li>
                 </ul>
+                // ... existing code ...
                 <div className="flex flex-col gap-2 min-[400px]:flex-row">
-                  <Button className="bg-orange-500 hover:bg-orange-600">立即報名</Button>
+                  <Button className="bg-orange-500 hover:bg-orange-600">
+                    <a
+                      href="https://forms.gle/oNHHgK1yP9ccKytD7"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="text-white"
+                    >
+                      立即報名
+                    </a>
+                  </Button>
                   <Button variant="outline">了解更多</Button>
                 </div>
+// ... existing code .../
+
               </div>
               <div className="flex items-center justify-center">
                 <Image

@@ -1,15 +1,10 @@
 import Link from "next/link"
 import Image from "next/image"
-import { useState } from 'react'
 import { Button } from "@/components/ui/button"
 import { Card, CardContent } from "@/components/ui/card"
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs"
-import { Calendar, Clock, MapPin, Phone, Mail, CheckCircle, AlertCircle } from "lucide-react"
+import { Calendar, Clock, MapPin, Phone, Mail } from "lucide-react"
 import { ImageCarousel } from "@/components/image-carousel"
-import { Label } from "@/components/ui/label"
-import { Input } from "@/components/ui/input"
-import { Textarea } from "@/components/ui/textarea"
-import { Alert, AlertDescription } from "@/components/ui/alert"
 
 export default function Home() {
   const galleryImages = [
@@ -77,16 +72,16 @@ export default function Home() {
             </Link>
           </nav>
           <div className="flex items-center gap-4">
-            <a
-              href="https://forms.gle/eKTRtqfnLqEmKVpSA"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="inline-block"
-            >
-              <Button size="sm" className="bg-green-500 hover:bg-green-600">
+            <Button size="sm" className="bg-green-500 hover:bg-green-600">
+              <a
+                href="https://forms.gle/eKTRtqfnLqEmKVpSA"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-white"
+              >
                 立即報名
-              </Button>
-            </a>
+              </a>
+            </Button>
           </div>
         </div>
       </header>
@@ -960,113 +955,3 @@ export default function Home() {
     </div>
   )
 }
-
-const ContactForm = () => {
-  const [formData, setFormData] = useState({
-    name: '',
-    email: '',
-    phone: '',
-    subject: '',
-    message: ''
-  });
-  const [isSubmitting, setIsSubmitting] = useState(false);
-  const [submitStatus, setSubmitStatus] = useState<'idle' | 'success' | 'error'>('idle');
-
-  const handleSubmit = async (e: React.FormEvent) => {
-    e.preventDefault();
-    setIsSubmitting(true);
-    setSubmitStatus('idle'); // 重置狀態
-    
-    try {
-      const response = await fetch('/api/contact', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify(formData),
-      });
-
-      if (!response.ok) throw new Error('提交失敗');
-      
-      setSubmitStatus('success');
-      setFormData({ name: '', email: '', phone: '', subject: '', message: '' });
-    } catch (error) {
-      setSubmitStatus('error');
-      console.error('提交表單時發生錯誤:', error);
-    } finally {
-      setIsSubmitting(false);
-    }
-  };
-
-  return (
-    <form onSubmit={handleSubmit} className="space-y-4">
-      <div className="grid gap-4">
-        <div className="grid gap-2">
-          <Label htmlFor="name">姓名</Label>
-          <Input
-            id="name"
-            value={formData.name}
-            onChange={(e) => setFormData(prev => ({ ...prev, name: e.target.value }))}
-            required
-          />
-        </div>
-        <div className="grid gap-2">
-          <Label htmlFor="email">電子郵件</Label>
-          <Input
-            id="email"
-            type="email"
-            value={formData.email}
-            onChange={(e) => setFormData(prev => ({ ...prev, email: e.target.value }))}
-            required
-          />
-        </div>
-        <div className="grid gap-2">
-          <Label htmlFor="phone">電話</Label>
-          <Input
-            id="phone"
-            type="tel"
-            value={formData.phone}
-            onChange={(e) => setFormData(prev => ({ ...prev, phone: e.target.value }))}
-          />
-        </div>
-        <div className="grid gap-2">
-          <Label htmlFor="subject">主旨</Label>
-          <Input
-            id="subject"
-            value={formData.subject}
-            onChange={(e) => setFormData(prev => ({ ...prev, subject: e.target.value }))}
-            required
-          />
-        </div>
-        <div className="grid gap-2">
-          <Label htmlFor="message">留言內容</Label>
-          <Textarea
-            id="message"
-            value={formData.message}
-            onChange={(e) => setFormData(prev => ({ ...prev, message: e.target.value }))}
-            required
-          />
-        </div>
-      </div>
-      <Button 
-        className="bg-orange-500 hover:bg-orange-600 w-full" 
-        type="submit"
-        disabled={isSubmitting}
-      >
-        {isSubmitting ? '提交中...' : '提交'}
-      </Button>
-      {submitStatus === 'success' && (
-        <Alert className="bg-green-50 text-green-700">
-          <CheckCircle className="h-4 w-4" />
-          <AlertDescription>感謝您的留言，我們會盡快回覆。</AlertDescription>
-        </Alert>
-      )}
-      {submitStatus === 'error' && (
-        <Alert variant="destructive">
-          <AlertCircle className="h-4 w-4" />
-          <AlertDescription>提交失敗，請稍後再試。</AlertDescription>
-        </Alert>
-      )}
-    </form>
-  );
-};

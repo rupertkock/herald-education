@@ -287,7 +287,7 @@ export default function Home() {
                     </div>
                   </li>
                 </ul>
-
+                
                 <div className="flex flex-col gap-2 min-[400px]:flex-row">
                   <Button className="bg-orange-500 hover:bg-orange-600">
                     <a
@@ -771,7 +771,10 @@ export default function Home() {
                     </div>
                   </li>
                 </ul>
-                
+                <div className="flex flex-col gap-2 min-[400px]:flex-row">
+                  <Button className="bg-orange-500 hover:bg-orange-600">立即報名</Button>
+                  <Button variant="outline">預約參觀</Button>
+                </div>
               </div>
               <div className="flex items-center justify-center">
                 <Card className="w-full">

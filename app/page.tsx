@@ -779,51 +779,16 @@ export default function Home() {
               <div className="flex items-center justify-center">
                 <Card className="w-full">
                   <CardContent className="p-6">
-                    <form className="grid gap-4">
-                      <div className="grid gap-2">
-                        <label htmlFor="name" className="text-sm font-medium leading-none">
-                          姓名
-                        </label>
-                        <input
-                          id="name"
-                          className="flex h-10 w-full rounded-md border border-input bg-background px-3 py-2 text-sm ring-offset-background file:border-0 file:bg-transparent file:text-sm file:font-medium placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50"
-                          placeholder="請輸入您的姓名"
-                        />
-                      </div>
-                      <div className="grid gap-2">
-                        <label htmlFor="email" className="text-sm font-medium leading-none">
-                          電子郵件
-                        </label>
-                        <input
-                          id="email"
-                          type="email"
-                          className="flex h-10 w-full rounded-md border border-input bg-background px-3 py-2 text-sm ring-offset-background file:border-0 file:bg-transparent file:text-sm file:font-medium placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50"
-                          placeholder="請輸入您的電子郵件"
-                        />
-                      </div>
-                      <div className="grid gap-2">
-                        <label htmlFor="phone" className="text-sm font-medium leading-none">
-                          電話
-                        </label>
-                        <input
-                          id="phone"
-                          type="tel"
-                          className="flex h-10 w-full rounded-md border border-input bg-background px-3 py-2 text-sm ring-offset-background file:border-0 file:bg-transparent file:text-sm file:font-medium placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50"
-                          placeholder="請輸入您的電話號碼"
-                        />
-                      </div>
-                      <div className="grid gap-2">
-                        <label htmlFor="message" className="text-sm font-medium leading-none">
-                          留言
-                        </label>
-                        <textarea
-                          id="message"
-                          className="flex min-h-[100px] w-full rounded-md border border-input bg-background px-3 py-2 text-sm ring-offset-background placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50"
-                          placeholder="請輸入您的留言"
-                        />
-                      </div>
-                      <Button className="bg-orange-500 hover:bg-orange-600 w-full">提交</Button>
-                    </form>
+                    <iframe 
+                      src="https://docs.google.com/forms/d/e/1FAIpQLSdsootl20o8sb_hP7ao7B7Swqmqr3SXOTYU4tBGj2UYsalaVg/viewform?embedded=true"
+                      width="100%"
+                      height="600"
+                      frameBorder="0"
+                      className="w-full"
+                      style={{ minHeight: '600px' }}
+                    >
+                      載入中...
+                    </iframe>
                   </CardContent>
                 </Card>
               </div>

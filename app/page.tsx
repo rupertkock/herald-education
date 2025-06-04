@@ -301,7 +301,7 @@ export default function Home() {
                       立即報名
                     </a>
                   </Button>
-                  <Button variant="outline">了解更多</Button>
+                  {/*<Button variant="outline">了解更多</Button> */}
                 </div>
 
 
@@ -439,7 +439,7 @@ export default function Home() {
                       立即報名
                     </a>
                   </Button>
-                  <Button variant="outline">了解更多</Button>
+                  {/*<Button variant="outline">了解更多</Button> */}
                 </div>
               </div>
             </div>
@@ -479,9 +479,11 @@ export default function Home() {
                   </div>
                   <h3 className="text-xl font-bold text-blue-600">藝術與創意</h3>
                   <p className="text-gray-500">包括繪畫、手工藝、音樂、舞蹈等課程，培養孩子的藝術感知和創造力。</p>
+                 {/*隱藏了解更多按鈕
                   <Button variant="outline" className="mt-2">
                     了解更多
                   </Button>
+                  */}
                 </CardContent>
               </Card>
               <Card className="border-2 border-blue-200">
@@ -508,9 +510,11 @@ export default function Home() {
                   </div>
                   <h3 className="text-xl font-bold text-blue-600">學術提升</h3>
                   <p className="text-gray-500">提供英文、數學、科學等學科的輔導課程，幫助孩子提高學業成績。</p>
+                  {/*隱藏了解更多按鈕
                   <Button variant="outline" className="mt-2">
                     了解更多
                   </Button>
+                  */}
                 </CardContent>
               </Card>
               <Card className="border-2 border-blue-200">
@@ -534,9 +538,11 @@ export default function Home() {
                   </div>
                   <h3 className="text-xl font-bold text-blue-600">品格培養</h3>
                   <p className="text-gray-500">通過聖經故事、團隊活動等方式，培養孩子良好的品格和價值觀。</p>
+                 {/*隱藏了解更多按鈕
                   <Button variant="outline" className="mt-2">
                     了解更多
                   </Button>
+                  */}
                 </CardContent>
               </Card>
               <Card className="border-2 border-blue-200">
@@ -560,9 +566,11 @@ export default function Home() {
                   </div>
                   <h3 className="text-xl font-bold text-blue-600">體育鍛鍊</h3>
                   <p className="text-gray-500">我們的乒乓球俱樂部通過日常訓練、比賽籌辦等方式，培養孩子良好的毅力與自信。</p>
+                  {/*隱藏了解更多按鈕
                   <Button variant="outline" className="mt-2">
                     了解更多
                   </Button>
+                  */}
                 </CardContent>
               </Card>
               <Card className="border-2 border-blue-200">
@@ -587,9 +595,11 @@ export default function Home() {
                   </div>
                   <h3 className="text-xl font-bold text-blue-600">語言學習</h3>
                   <p className="text-gray-500">提供中文、英文等語言學習課程，幫助孩子掌握多種語言能力。</p>
+                  {/*隱藏了解更多按鈕
                   <Button variant="outline" className="mt-2">
                     了解更多
                   </Button>
+                  */}
                 </CardContent>
               </Card>
               <Card className="border-2 border-blue-200">
@@ -613,9 +623,11 @@ export default function Home() {
                   </div>
                   <h3 className="text-xl font-bold text-blue-600">閱讀與寫作</h3>
                   <p className="text-gray-500">培養孩子的閱讀習慣和寫作能力，提高語言表達和思維能力。</p>
+                  {/*隱藏了解更多按鈕
                   <Button variant="outline" className="mt-2">
                     了解更多
                   </Button>
+                  */}
                 </CardContent>
               </Card>
             </div>

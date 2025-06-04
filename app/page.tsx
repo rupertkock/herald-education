@@ -64,9 +64,11 @@ export default function Home() {
             <Link href="#training" className="text-sm font-medium hover:underline">
               培訓課程
             </Link>
+            {/* 暫時隱藏師資團隊連結
             <Link href="/teachers" className="text-sm font-medium hover:underline">
               師資團隊
             </Link>
+            */}
             <Link href="#contact" className="text-sm font-medium hover:underline">
               聯絡我們
             </Link>

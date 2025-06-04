@@ -558,8 +558,8 @@ export default function Home() {
                       <line x1="4" x2="4" y1="22" y2="15" />
                     </svg>
                   </div>
-                  <h3 className="text-xl font-bold text-blue-600">品格培養</h3>
-                  <p className="text-gray-500">通過聖經故事、團隊活動等方式，培養孩子良好的品格和價值觀。</p>
+                  <h3 className="text-xl font-bold text-blue-600">體育鍛鍊</h3>
+                  <p className="text-gray-500">我們的乒乓球俱樂部通過日常訓練、比賽籌辦等方式，培養孩子良好的毅力與自信。</p>
                   <Button variant="outline" className="mt-2">
                     了解更多
                   </Button>
@@ -723,7 +723,7 @@ export default function Home() {
                     </div>
                   </div>
                   <p className="text-gray-500">
-                    "角聲的培訓課程非常專業，老師們都很有耐心和愛心。我的孩子在這裡學習了鋼琴和繪畫，進步非常大，也很喜歡這裡的學習氛圍。"
+                    "角聲的培訓課程非常專業，老師們都很有耐心和愛心。我的孩子在這裡參加了乒乓球俱樂部的學習，進步非常大，也鍛鍊了身體。"
                   </p>
                 </CardContent>
               </Card>
@@ -876,11 +876,14 @@ export default function Home() {
                     培訓課程
                   </a>
                 </li>
+                {/* 暫時隱藏師資團隊連結
+      
                 <li>
                   <a href="/teachers" className="hover:text-white">
                     師資團隊
                   </a>
                 </li>
+                 */}
               </ul>
             </div>
             <div className="space-y-4">
